@@ -26,15 +26,19 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:contentDescription="Plus Button"
+        android:background="@drawable/circle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTeamName"
-        app:srcCompat="@drawable/ic_plus" />
+        app:srcCompat="@drawable/ic_plus"
+
+        />
 
     <ImageButton
         android:id="@+id/btnMinus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
+        android:background="@drawable/circle"
         android:layout_marginTop="24dp"
         android:contentDescription="Minus Button"
         app:layout_constraintRight_toRightOf="parent"

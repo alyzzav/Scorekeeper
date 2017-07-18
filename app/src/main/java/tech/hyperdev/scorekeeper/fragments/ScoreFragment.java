@@ -45,12 +45,14 @@ public class ScoreFragment extends Fragment {
         final TextView score = (TextView) view.findViewById(R.id.textView2);
         fscore = Integer.parseInt(score.getText().toString());
 
+
         btn_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fscore++;
                 if(fscore<0)
                     fscore=0;
+                score.setText("");
                 score.setText(""+fscore);
             }
         });
@@ -61,6 +63,7 @@ public class ScoreFragment extends Fragment {
                 fscore--;
                 if(fscore<0)
                     fscore=0;
+                score.setText("");
                 score.setText(""+fscore);
             }
         });
