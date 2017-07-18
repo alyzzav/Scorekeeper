@@ -1,11 +1,14 @@
 package tech.hyperdev.scorekeeper.fragments;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +26,7 @@ public class ScoreFragment extends Fragment {
 
     public View view;
     public String name;
-    public String score;
+    public int fscore;
     public String arg;
 
     @Override
@@ -34,9 +37,33 @@ public class ScoreFragment extends Fragment {
 
         readBundle(getArguments());
 
-
         TextView tvname = (TextView) view.findViewById(R.id.tvTeamName);
         tvname.setText(name+"");
+
+        ImageButton btn_plus = (ImageButton) view.findViewById(R.id.btnPlus);
+        ImageButton btn_minus = (ImageButton) view.findViewById(R.id.btnMinus);
+        final TextView score = (TextView) view.findViewById(R.id.textView2);
+        fscore = Integer.parseInt(score.getText().toString());
+
+        btn_plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fscore++;
+                if(fscore<0)
+                    fscore=0;
+                score.setText(""+fscore);
+            }
+        });
+
+        btn_minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fscore--;
+                if(fscore<0)
+                    fscore=0;
+                score.setText(""+fscore);
+            }
+        });
 
         return view;
     }
