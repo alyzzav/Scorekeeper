@@ -28,12 +28,9 @@ public class MainActivity extends AppCompatActivity {
         Fragment score_one = ScoreFragment.newInstance("TEAM 1");
         Fragment score_two = ScoreFragment.newInstance("TEAM 2");
 
-//        score_one.setArguments(getIntent().getExtras());
         FragmentTransaction one = getSupportFragmentManager().beginTransaction();
         one.add(R.id.frame_one, score_one).commit();
 
-
-//        score_two.setArguments(getIntent().getExtras());
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.frame_two, score_two).commit();
 
